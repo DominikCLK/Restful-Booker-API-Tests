@@ -592,3 +592,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 <p align="center">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
 </p>
+
+## Author
+
+- [@DominikCLK](https://github.com/DominikCLK)
