@@ -322,6 +322,118 @@ Specify in the documentation whether the totalprice value should be rounded to i
   </a>
 </p>
 
+## 7. [BUG] Check In and checkout take values of the Number type. Incorrect conversion of number to date in 'checkin' and 'checkout' fields #007 _Priority High | Severity Major_ [TEST env]
+
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request
+
+```
+{
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
+
+> 3. Use Booking - UpdateBooking request to update data, replace body request “bookingdates” to checkin: Number 1 and checkout 1
+
+```
+    "bookingdates": {
+        "checkin": 1,
+        "checkout": 1
+}
+```
+- Actual Result
+> 1. Response:
+
+```
+  "bookingdates": {
+        "checkin": "1970-01-01",
+        "checkout": "1970-01-01"
+    }
+```
+> 2. Status is 200 OK
+
+- Expected result:
+> 1. Status 400 Bad request
+
+```
+{
+    "error": {
+        "code": 400,
+        "message": "Invalid data format in 'checkin' or 'checkout' fields. Expected date in 'YYYY-MM-DD' format."
+    }
+}
+```
+> 2. Documentation
+
+![2024-02-15_22h50_48](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/1b816b6e-58be-46d9-8e83-f1dcd3675baa)
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
+
+
+## 8. [BUG] Invalid data type in 'additionalneeds' field - expected text, not numbers #008 _Priority High | Severity Major_ [TEST env]
+
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request
+
+```
+{
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
+
+> 3. Use Booking - UpdateBooking request to update data, replace body request value “'additionalneeds” to Number: 1300
+
+```
+"additionalneeds": 1333
+```
+
+- Actual Result
+> 1. Response:
+
+```
+"additionalneeds": 1333
+```
+
+> 2. Status is 200 OK
+
+- Expected result:
+> 1. Status 400 Bad request
+> 2. Invalid data type in 'additionalneeds' field - expected text, not numbers or boolean
+
+```
+{
+    "error": {
+        "code": 400,
+        "message": "Invalid data type in 'additionalneeds' field. Expected String."
+    }
+}
+```
+
+> Documentation
+
+![2024-02-15_22h58_10](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/65625ac3-2b47-4110-829a-679e03fb0aad)
 
 
 
@@ -329,6 +441,31 @@ Specify in the documentation whether the totalprice value should be rounded to i
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
 
 
 
