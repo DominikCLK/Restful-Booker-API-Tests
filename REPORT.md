@@ -15,7 +15,7 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
 ## Environment:
 - Test [Restful-Booker-TEST]
 
-## The API endpoint _UpdateBooking_ tests showed a number of documentation irregularities and other defects. Below is a list of bugs:
+## The API endpoint _UpdateBooking_ tests showed a number of documentation irregularities and other defects. Below is a list of bugs: <a id="list"></a>
 
 1. [[BUG] Fields "firstname" and “lastname” accepts invalid data type (Boolean - false) instead String](#001)
 2. [[BUG] Floating-point variables in the body request (“totalprice” field ) are rounded to integers in the response](#002)
@@ -36,7 +36,7 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
   </a>
 </p>
 
-## 1. [BUG] Fields "firstname" and “lastname” accepts invalid data type (Boolean - false) instead String #001 _Priority High | Severity Major_ | [TEST env] <a id="001"></a>
+## 1. [BUG] Fields "firstname" and “lastname” accepts invalid data type (Boolean - false) instead String #001 _Priority High | Severity Major_ | [TEST env] <a id="001"></a> ([Back to list](#list))
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
