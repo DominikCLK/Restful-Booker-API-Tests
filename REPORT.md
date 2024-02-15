@@ -265,6 +265,63 @@ Specify in the documentation whether the totalprice value should be rounded to i
   </a>
 </p>
 
+## 6. [BUG] Incorrect response status for types other than Date for checkin checkout #006 _Priority High | Severity Major_ [TEST env]
+
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request
+
+```
+ {
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
+> 3. Use Booking - UpdateBooking request to update data, replace body request “bookingdates” to checkin: String "text" and checkout: "text"
+
+```
+    "bookingdates": {
+        "checkin": "text",
+        "checkout": "text"
+}
+```
+
+- Actual Result
+> 1. Response:
+
+```
+    "bookingdates": {
+        "checkin": "0NaN-aN-aN",
+        "checkout": "0NaN-aN-aN"
+    }
+```
+> 2. Status is 200 OK
+
+- Expected result:
+> 1. Status 400 Bad request
+
+```
+{
+    "error": {
+        "code": 400,
+        "message": "Invalid date format in 'checkin' or 'checkout' field. Expected format: 'YYYY-MM-DD'."
+    }
+}
+```
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
+
 
 
 
