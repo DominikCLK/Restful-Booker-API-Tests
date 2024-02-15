@@ -89,9 +89,7 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
 ```
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
 
 ## 2. [BUG] Floating-point variables in the body request (“totalprice” field ) are rounded to integers in the response #002 _Priority High | Severity Major_ | [TEST env] <a id="002"></a> ([Back to list](#list))
@@ -133,9 +131,7 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
 Specify in the documentation whether the totalprice value should be rounded to integer
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
 
 
@@ -182,9 +178,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 ![2024-02-15_22h21_55](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/5f62534d-e87f-47b7-b11e-2a351b185533)
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
 
 
@@ -235,9 +229,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 ```
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
 
 ## 5. [BUG] Lack of verification of compliance of check in and check out dates #005 _Priority High | Severity Major_  [TEST env] <a id="005"></a> ([Back to list](#list))
@@ -277,9 +269,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 > 2. bookingdates fields should be verified. The checkout date cannot be earlier than the checkin date
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
 
 ## 6. [BUG] Incorrect response status for types other than Date for checkin checkout #006 _Priority High | Severity Major_ [TEST env] <a id="006"></a> ([Back to list](#list))
@@ -334,9 +324,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 ```
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
 
 ## 7. [BUG] Check In and checkout take values of the Number type. Incorrect conversion of number to date in 'checkin' and 'checkout' fields #007 _Priority High | Severity Major_ [TEST env] <a id="007"></a> ([Back to list](#list))
@@ -394,11 +382,8 @@ Specify in the documentation whether the totalprice value should be rounded to i
 ![2024-02-15_22h50_48](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/1b816b6e-58be-46d9-8e83-f1dcd3675baa)
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
-
 
 ## 8. [BUG] Invalid data type in 'additionalneeds' field - expected text, not numbers #008 _Priority High | Severity Major_ [TEST env] <a id="008"></a> ([Back to list](#list))
 
@@ -452,9 +437,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 ![2024-02-15_22h58_10](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/65625ac3-2b47-4110-829a-679e03fb0aad)
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
 
 ## 9. [BUG] The 'totalprice' field accepts negative values #009 _Priority High | Severity Major_  [TEST env] <a id="009"></a> ([Back to list](#list))
@@ -496,11 +479,8 @@ Specify in the documentation whether the totalprice value should be rounded to i
 > 2. Field should not take negative values
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
-
 
 ## 10. [BUG] Incorrect response status when not authorized #010 _Priority High | Severity Major_  [TEST env] <a id="010"></a> ([Back to list](#list))
 
@@ -533,9 +513,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 > 1. Should be Status 403 Forbidden. This error code is commonly used in the context of failure to authenticate.
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
 
 ## 11. [BUG] Incorrect response status after sending a request with the Number type for firstname field #011 _Priority High | Severity Major_ [TEST env] <a id="011"></a> ([Back to list](#list))
@@ -573,11 +551,8 @@ Specify in the documentation whether the totalprice value should be rounded to i
 > 1. Should be Status 400 Bad request.. This error code is commonly used in the context of failure to authenticate.
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
-
 
 ## 12. [BUG] Attempting to update a deleted resource should return 404 "Not Found" instead of 405 "Method Not Allowed" #012 _Priority High | Severity Major_ [TEST env] <a id="012"></a> ([Back to list](#list))
 
@@ -615,7 +590,5 @@ Specify in the documentation whether the totalprice value should be rounded to i
 > The resource that was deleted does not exist on the server, so trying to update it should result in a 404. A 405 status would mean that the method you are trying to use is not allowed, which is not an ideal choice for trying to update a resource again that has been deleted. deleted.
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
