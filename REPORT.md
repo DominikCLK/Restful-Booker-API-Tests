@@ -1,4 +1,4 @@
-# API tests report (UpdateBooking endpoint) using Postman 
+# API tests report (_UpdateBooking_ endpoint) using Postman 
 
 This API test report is a summary of testing the UpdateBooking endpoint using Postman. The report contains information such as the test environment, tools used, test results and recommendations.
 
@@ -10,7 +10,7 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
 - 02.02.2024 - 06.02.2024
 
 ## Tests scope:
-- Manual testing of the UpdateBooking endpoint and verifying compliance with the documentation
+- Manual testing of the _UpdateBooking_ endpoint and verifying compliance with the documentation
   
 ## Environment:
 - Test [Restful-Booker-TEST]
