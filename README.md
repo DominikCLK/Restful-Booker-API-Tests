@@ -1,3 +1,9 @@
+  <p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=,postman" />
+  </a>
+</p>
+
 # ⚡️Restful-Booker-API-Tests
 
 ## 🔍 Overview
@@ -32,3 +38,6 @@ Documentation can be found at: https://restful-booker.herokuapp.com/apidoc/index
   ![2024-02-15_16h55_43](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/fd644109-56bb-4a18-a0fd-181303839864)
 
 
+## Author
+
+- [@DominikCLK](https://github.com/DominikCLK)
