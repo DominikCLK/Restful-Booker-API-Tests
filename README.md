@@ -17,8 +17,8 @@ Documentation can be found at: https://restful-booker.herokuapp.com/apidoc/index
 ## 📊 Testware
 
 - API (UpdateBooking endpoint) Documentation: https://restful-booker.herokuapp.com/apidoc/index.html#api-Booking-UpdateBooking
-- Collection file with requests (Postman) [Collection](https://github.com/DominikCLK/Restful-Booker-API-Tests/files/14298612/Restful-Booker.postman_collection.QA.Dominik.Calak.json)
-- Environment file with variables (Postman) [Environment variables](https://github.com/DominikCLK/Restful-Booker-API-Tests/files/14298626/Restful-Booker-TEST.postman_environment.Dominik.Calak.QA.json)
+- Collection file with requests (Postman) [Collection](https://github.com/DominikCLK/Restful-Booker-API-Tests/files/14298612/Restful-Booker.postman_collection.QA.Dominik.Calak.json) <-- Download
+- Environment file with variables (Postman) [Environment variables](https://github.com/DominikCLK/Restful-Booker-API-Tests/files/14298626/Restful-Booker-TEST.postman_environment.Dominik.Calak.QA.json) <-- Download
 - UpdateBooking Endpoint test report [Report](https://github.com/DominikCLK/Restful-Booker-API-Tests/blob/main/REPORT.md)
 
 ## 🛠️ How setup collection?
