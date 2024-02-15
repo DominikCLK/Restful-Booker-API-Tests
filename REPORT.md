@@ -216,12 +216,54 @@ Specify in the documentation whether the totalprice value should be rounded to i
    "message": "Invalid data type. Expected Boolean, but received Number."} (or String)
 }
 ```
+
 <p align="center">
   <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
   </a>
 </p>
 
+## 5. [BUG] Lack of verification of compliance of check in and check out dates #005 _Priority High | Severity Major_  [TEST env]
+
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request
+
+```
+{
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
+> 3. Use Booking - UpdateBooking request to update data, replace body request “bookingdates” to checkin: "2024-01-01" and checkout in past: "2023-01-01"
+
+```
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2023-01-01"
+    }
+```
+
+- Actual Result:
+> 1. The 'checkout' date is earlier than the 'check in' date in the response. Lack of verification of compliance of check in and check out dates
+> 2. Status is 200 OK
+
+- Expected result:
+> 1. Status 400 Bad request
+> 2. bookingdates fields should be verified. The checkout date cannot be earlier than the checkin date
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
 
 
 
