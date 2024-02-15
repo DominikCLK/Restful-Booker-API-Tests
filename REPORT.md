@@ -11,6 +11,12 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
 
 ## Tests scope:
 - Manual testing of the _UpdateBooking_ endpoint and verifying compliance with the documentation
+
+## Testware
+
+- API (UpdateBooking endpoint) Documentation: https://restful-booker.herokuapp.com/apidoc/index.html#api-Booking-UpdateBooking
+- Collection file with requests (Postman) [Collection](https://github.com/DominikCLK/Restful-Booker-API-Tests/files/14298612/Restful-Booker.postman_collection.QA.Dominik.Calak.json) <-- file to download
+- Environment file with variables (Postman) [Environment variables](https://github.com/DominikCLK/Restful-Booker-API-Tests/files/14298626/Restful-Booker-TEST.postman_environment.Dominik.Calak.QA.json) <-- file to download
   
 ## Environment:
 - Test [Restful-Booker-TEST]
