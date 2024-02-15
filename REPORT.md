@@ -23,7 +23,7 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
   </a>
 </p>
 
-1. ## [BUG] Fields "firstname" and “lastname” accepts invalid data type (Boolean - false) instead String #001 _Priority High | Severity Major_ | [TEST env]
+## 1. [BUG] Fields "firstname" and “lastname” accepts invalid data type (Boolean - false) instead String #001 _Priority High | Severity Major_ | [TEST env]
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -70,3 +70,190 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
   "message": "Invalid data type. Expected string, but received boolean."
 }
 ```
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
+
+## 2. [BUG] Floating-point variables in the body request (“totalprice” field ) are rounded to integers in the response #002 _Priority High | Severity Major_ | [TEST env]
+
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request:
+
+```
+{
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
+> 3. Use Booking - UpdateBooking request to update data, replace body request “totalprice” to float “ 100.58 “
+
+```
+{
+    "totalprice": 100.58,
+}
+```
+- Actual Result:
+> 1. Totalprice in response is rounded to integers type
+
+![2024-02-15_22h06_50](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/5eaebd87-4d4a-4666-8d55-3e8f3eee2bb4)
+
+> 2. Status is 200 OK
+
+- Expected result:
+> 1. Totalprice in response should be the same as request
+> Recommendations
+Specify in the documentation whether the totalprice value should be rounded to integer
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
+
+
+## 3. [BUG] Field "totalprice" accepts invalid data type (String) instead Number and return null #003 _Priority High | Severity Major_  [TEST env]
+
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request
+
+```
+{
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
+> 3. Use Booking - UpdateBooking request to update data, replace body request “totalprice” to String
+
+```
+{
+    "totalprice": "Text",
+}
+```
+- Actual Result:
+> 1. Response totalprice returns “null”
+> 2. Status is 200 OK
+
+- Expected result:
+> 1. Status 400 Bad request
+
+```
+ { "error": "Bad Request",
+  "message": "Invalid data type. Expected Number, but received String."
+}
+```
+> Documentation
+
+![2024-02-15_22h21_55](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/5f62534d-e87f-47b7-b11e-2a351b185533)
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
+
+
+## 4. [BUG] Only Boolean type should be accepted in the 'depositpaid' field. Missing validation #004 _Priority High | Severity Major_  [TEST env]
+
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request
+
+```
+{
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
+> 3. Use Booking - UpdateBooking request to update data, replace body request “depositpaid” to Number“
+
+```
+{
+    "depositpaid": 1000,
+}
+```
+- Actual Result:
+> 1. Response depositpaid returns true
+> 2. Status is 200 OK
+
+- Expected result:
+> 1. Status 400 Bad request
+> 2. A depositpaid field should accept only Boolean type
+
+> Documentation
+
+![2024-02-15_22h28_46](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/5909f6b3-3374-4455-b9e4-c439245f9165)
+
+> Recommendations
+```
+{
+   "error": "Bad Request",
+   "message": "Invalid data type. Expected Boolean, but received Number."} (or String)
+}
+```
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
