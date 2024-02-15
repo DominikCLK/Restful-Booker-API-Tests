@@ -430,36 +430,53 @@ Specify in the documentation whether the totalprice value should be rounded to i
     }
 }
 ```
-
 > Documentation
 
 ![2024-02-15_22h58_10](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/65625ac3-2b47-4110-829a-679e03fb0aad)
 
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
 
+## 9. [BUG] The 'totalprice' field accepts negative values #009 _Priority High | Severity Major_  [TEST env]
 
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request
 
+```
+{
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
 
+> 3. Use Booking - UpdateBooking request to update data, replace body request “totalprice” to -1000
 
+```
+"totalprice": -1000,
+```
 
+- Actual Result
+> 1. Response:
 
+```
+"totalprice": -1000,
+```
+> 2. Status code is 200
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- Expected result:
+> 1. Status 400 Bad request
+> 2. Field should not take negative values
 
 <p align="center">
   <a href="https://skillicons.dev">
@@ -468,28 +485,120 @@ Specify in the documentation whether the totalprice value should be rounded to i
 </p>
 
 
+## 10. [BUG] Incorrect response status when not authorized #010 _Priority High | Severity Major_  [TEST env]
+
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request
+
+```
+{
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
+
+> 3. Uncheck Cookie Headers with token value in Postman and send PUT request
+
+![2024-02-15_23h31_57](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/c7d5385f-8804-4e2c-bf89-4ec5bbe422d2)
+
+- Actual Result
+> 1. Status 403 Forbidden
+
+- Expected result:
+> 1. Should be Status 403 Forbidden. This error code is commonly used in the context of failure to authenticate.
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
+
+## 11. [BUG] Incorrect response status after sending a request with the Number type for firstname field #011 _Priority High | Severity Major_ [TEST env]
+
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request
+
+```
+{
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
+
+> 3. Use Booking - UpdateBooking request to update data, replace body request value “firstname” to Number: 122 f.e.
+
+```
+"firstname": 122
+```
+
+- Actual Result
+> 1. Response code is 500 Internal Server Error
+
+![2024-02-15_23h36_51](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/7c7f4652-f50c-4fd9-8a5c-b3ae40b2ce87)
+
+- Expected result:
+> 1. Should be Status 400 Bad request.. This error code is commonly used in the context of failure to authenticate.
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
 
 
+## 12. [BUG] Attempting to update a deleted resource should return 404 "Not Found" instead of 405 "Method Not Allowed"s #012 _Priority High | Severity Major_ [TEST env]
+
+- Repro steps:
+> 1. Use Auth - CreateToken request to send token
+> 2. Use Booking - CreateBooking request to create booking (use body request) and send request
+
+```
+{
+    "firstname": "Dominik",
+    "lastname": "Tester",
+    "totalprice": 100,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-01-01",
+        "checkout": "2025-01-01"
+    },
+    "additionalneeds": "Breakfast"
+}
+```
+
+> 3. Use Booking - DeleteBooking  request to delete resource
+> 4. Use Booking - UpdateBooking  request to update resource
 
 
+- Actual Result
+> Status code is 405 Method Not Allowed
 
+![2024-02-15_23h40_24](https://github.com/DominikCLK/Restful-Booker-API-Tests/assets/75272795/6bd78b94-2cf5-4aec-87e1-f200254036e7)
 
+- Expected result:
+> 1. Status 404 Not found
 
+> Recommendations:
+> The resource that was deleted does not exist on the server, so trying to update it should result in a 404. A 405 status would mean that the method you are trying to use is not allowed, which is not an ideal choice for trying to update a resource again that has been deleted. deleted.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
+  </a>
+</p>
