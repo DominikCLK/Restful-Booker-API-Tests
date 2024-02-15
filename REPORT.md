@@ -37,9 +37,7 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
 12. [[BUG] Attempting to update a deleted resource should return 404 "Not Found" instead of 405 "Method Not Allowed"](#012)
 
 <p align="center">
-  <a href="https://skillicons.dev">
     <img src="https://skillicons.dev/icons?i=github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github,postman,github" />
-  </a>
 </p>
 
 ## 1. [BUG] Fields "firstname" and “lastname” accepts invalid data type (Boolean - false) instead String #001 _Priority High | Severity Major_ | [TEST env] <a id="001"></a> ([Back to list](#list))
