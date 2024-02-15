@@ -15,7 +15,20 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
 ## Environment:
 - Test [Restful-Booker-TEST]
 
-# The API endpoint UpdateBooking tests showed a number of documentation irregularities and other defects. Below is a list of bugs.
+## The API endpoint _UpdateBooking_ tests showed a number of documentation irregularities and other defects. Below is a list of bugs:
+
+1. [[BUG] Fields "firstname" and “lastname” accepts invalid data type (Boolean - false) instead String](#001)
+2. [[BUG] Floating-point variables in the body request (“totalprice” field ) are rounded to integers in the response](#002)
+3. [[BUG] Field "totalprice" accepts invalid data type (String) instead Number and return null](#003)
+4. [[BUG] Only Boolean type should be accepted in the 'depositpaid' field. Missing validation](#004)
+5. [[BUG] Lack of verification of compliance of check in and check out dates](#005)
+6. [[BUG] Incorrect response status for types other than Date for checkin checkout](#006)
+7. [[BUG] Check In and checkout take values of the Number type. Incorrect conversion of number to date in 'checkin' and 'checkout' fields](#007)
+8. [[BUG] Invalid data type in 'additionalneeds' field - expected text, not numbers](#008)
+9. [[BUG] The 'totalprice' field accepts negative values](#009)
+10. [[BUG] Incorrect response status when not authorized](#010)
+11. [[BUG] Incorrect response status after sending a request with the Number type for firstname field](#011)
+12. [[BUG] Attempting to update a deleted resource should return 404 "Not Found" instead of 405 "Method Not Allowed"](#012)
 
 <p align="center">
   <a href="https://skillicons.dev">
@@ -23,7 +36,7 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
   </a>
 </p>
 
-## 1. [BUG] Fields "firstname" and “lastname” accepts invalid data type (Boolean - false) instead String #001 _Priority High | Severity Major_ | [TEST env]
+## 1. [BUG] Fields "firstname" and “lastname” accepts invalid data type (Boolean - false) instead String #001 _Priority High | Severity Major_ | [TEST env] <a id="001"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -77,7 +90,7 @@ This API test report is a summary of testing the UpdateBooking endpoint using Po
   </a>
 </p>
 
-## 2. [BUG] Floating-point variables in the body request (“totalprice” field ) are rounded to integers in the response #002 _Priority High | Severity Major_ | [TEST env]
+## 2. [BUG] Floating-point variables in the body request (“totalprice” field ) are rounded to integers in the response #002 _Priority High | Severity Major_ | [TEST env] <a id="002"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -122,7 +135,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 </p>
 
 
-## 3. [BUG] Field "totalprice" accepts invalid data type (String) instead Number and return null #003 _Priority High | Severity Major_  [TEST env]
+## 3. [BUG] Field "totalprice" accepts invalid data type (String) instead Number and return null #003 _Priority High | Severity Major_  [TEST env] <a id="003"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -171,7 +184,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 </p>
 
 
-## 4. [BUG] Only Boolean type should be accepted in the 'depositpaid' field. Missing validation #004 _Priority High | Severity Major_  [TEST env]
+## 4. [BUG] Only Boolean type should be accepted in the 'depositpaid' field. Missing validation #004 _Priority High | Severity Major_  [TEST env] <a id="004"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -223,7 +236,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
   </a>
 </p>
 
-## 5. [BUG] Lack of verification of compliance of check in and check out dates #005 _Priority High | Severity Major_  [TEST env]
+## 5. [BUG] Lack of verification of compliance of check in and check out dates #005 _Priority High | Severity Major_  [TEST env] <a id="005"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -265,7 +278,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
   </a>
 </p>
 
-## 6. [BUG] Incorrect response status for types other than Date for checkin checkout #006 _Priority High | Severity Major_ [TEST env]
+## 6. [BUG] Incorrect response status for types other than Date for checkin checkout #006 _Priority High | Severity Major_ [TEST env] <a id="006"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -322,7 +335,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
   </a>
 </p>
 
-## 7. [BUG] Check In and checkout take values of the Number type. Incorrect conversion of number to date in 'checkin' and 'checkout' fields #007 _Priority High | Severity Major_ [TEST env]
+## 7. [BUG] Check In and checkout take values of the Number type. Incorrect conversion of number to date in 'checkin' and 'checkout' fields #007 _Priority High | Severity Major_ [TEST env] <a id="007"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -383,7 +396,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 </p>
 
 
-## 8. [BUG] Invalid data type in 'additionalneeds' field - expected text, not numbers #008 _Priority High | Severity Major_ [TEST env]
+## 8. [BUG] Invalid data type in 'additionalneeds' field - expected text, not numbers #008 _Priority High | Severity Major_ [TEST env] <a id="008"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -440,7 +453,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
   </a>
 </p>
 
-## 9. [BUG] The 'totalprice' field accepts negative values #009 _Priority High | Severity Major_  [TEST env]
+## 9. [BUG] The 'totalprice' field accepts negative values #009 _Priority High | Severity Major_  [TEST env] <a id="009"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -485,7 +498,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 </p>
 
 
-## 10. [BUG] Incorrect response status when not authorized #010 _Priority High | Severity Major_  [TEST env]
+## 10. [BUG] Incorrect response status when not authorized #010 _Priority High | Severity Major_  [TEST env] <a id="010"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -521,7 +534,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
   </a>
 </p>
 
-## 11. [BUG] Incorrect response status after sending a request with the Number type for firstname field #011 _Priority High | Severity Major_ [TEST env]
+## 11. [BUG] Incorrect response status after sending a request with the Number type for firstname field #011 _Priority High | Severity Major_ [TEST env] <a id="011"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
@@ -562,7 +575,7 @@ Specify in the documentation whether the totalprice value should be rounded to i
 </p>
 
 
-## 12. [BUG] Attempting to update a deleted resource should return 404 "Not Found" instead of 405 "Method Not Allowed"s #012 _Priority High | Severity Major_ [TEST env]
+## 12. [BUG] Attempting to update a deleted resource should return 404 "Not Found" instead of 405 "Method Not Allowed" #012 _Priority High | Severity Major_ [TEST env] <a id="012"></a>
 
 - Repro steps:
 > 1. Use Auth - CreateToken request to send token
